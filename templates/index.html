@@ -48,6 +48,9 @@ Enter your mind here ..."></textarea><br>
         $(document).ready(function(){
             var rocketPosition = {{ rocket_position }};
             $('#rocket').attr('y', rocketPosition);
+            if (rocketPosition < 650 ) {
+                $('#ready').css('visibility', 'hidden')
+            }
             
             $('#sendMessage').click(function(){
                 var message = $('#messageInput').val();
