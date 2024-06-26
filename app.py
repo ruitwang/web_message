@@ -5,6 +5,7 @@ import os
 app = Flask(__name__)
 
 # Initialize rocket position
+
 rocket_position = 650
 
 # Path to the file where messages will be stored
@@ -15,6 +16,7 @@ chat_file = 'chat.txt'
 
 @app.route('/')
 def index():
+    global rocket_position
     # Read messages from the file
     if os.path.exists(messages_file):
         with open(messages_file, 'r') as file:
@@ -22,7 +24,7 @@ def index():
     else:
         messages = []
 
-    return render_template('index.html', messages=messages)
+    return render_template('index.html', messages=messages, rocket_position=rocket_position)
 
 @app.route('/message', methods=['POST'])
 def message():

@@ -46,6 +46,9 @@ Enter your mind here ..."></textarea><br>
 
     <script>
         $(document).ready(function(){
+            var rocketPosition = {{ rocket_position }};
+            $('#rocket').attr('y', rocketPosition);
+            
             $('#sendMessage').click(function(){
                 var message = $('#messageInput').val();
                 if(message.trim() !== "") {
